@@ -1,6 +1,13 @@
-import "@/styles/globals.css";
-import type { AppProps } from "next/app";
+// _app.js
+import { AppProps } from 'next/app';
+import Auth0ProviderWithHistory from './auth/auth0-provider';
 
-export default function App({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />;
+function MyApp({ Component, pageProps }: AppProps) {
+  return (
+    <Auth0ProviderWithHistory>
+      <Component {...pageProps} />
+    </Auth0ProviderWithHistory>
+  );
 }
+
+export default MyApp;
