@@ -41,12 +41,14 @@ import ReactModal from "react-modal";
 import { useUser } from "@auth0/nextjs-auth0";
 import { usePaystackPayment } from "react-paystack";
 import Modal from "react-modal";
+import useAppAuth from "../../utils/firebase";
 //import balance from "../profilePage/walletPage/withdrawPage";
 // import { useShoppingCart } from "../../context/shoppingCart";
 
 const ProductInfoOverlay = ({ currentProduct }) => {
   const router = useRouter();
   const { user, error } = useUser();
+  const { getUserFromLocalStorage } = useAppAuth();
   const [variantButtonState, setVariantButtonState] = useState("not-selected"); // either not-selected or selected
   const { modifyItemQuantity, getItemQuantity, variantId, deactivateDefault } =
     useShoppingCart();
@@ -160,7 +162,13 @@ const ProductInfoOverlay = ({ currentProduct }) => {
   // useEffect(() => {
   //   Modal.setAppElement('#'); // Replace '#root' with your app's root element ID
   // }, []);
-
+  const openWordSearchGame = () => {
+    // Replace 'path/to/local/project' with the relative path to your local project's files
+    const localProjectPath =
+      "https://main--comforting-kelpie-ae0e91.netlify.app?userId=" +
+      JSON.parse(getUserFromLocalStorage())?.id;
+    window.open(localProjectPath, "_blank");
+  };
   return (
     <>
       {/* IMAGE VIEWER */}
@@ -583,24 +591,25 @@ const ProductInfoOverlay = ({ currentProduct }) => {
                 </button>
                 <button
                   className="bg-[#0aad0a] hover:bg-[green] w-5/12 h-12 rounded-md"
-                  onClick={() => {
-                    // router.replace("/api/auth/login");
-                    setOpenPlay(true);
-                    if (currentProduct.variants == null) {
-                      modifyItemQuantity(currentProduct, itemQuantity);
-                      setShowGameSettingsOverlay(true);
-                      console.log("No Variant");
-                    } else {
-                      if (currentProduct.variants.length > 0) {
-                        setShowVariant(true);
-                        console.log("Variant Product");
-                      }
-                    }
-                    if (user && openPlay) {
-                      setShowGameSettingsOverlay(true);
-                      return;
-                    }
-                  }}
+                  onClick={() => openWordSearchGame()}
+                  // onClick={() => {
+                  //   // router.replace("/api/auth/login");
+                  //   setOpenPlay(true);
+                  //   if (currentProduct.variants == null) {
+                  //     modifyItemQuantity(currentProduct, itemQuantity);
+                  //     setShowGameSettingsOverlay(true);
+                  //     console.log("No Variant");
+                  //   } else {
+                  //     if (currentProduct.variants.length > 0) {
+                  //       setShowVariant(true);
+                  //       console.log("Variant Product");
+                  //     }
+                  //   }
+                  //   if (user && openPlay) {
+                  //     setShowGameSettingsOverlay(true);
+                  //     return;
+                  //   }
+                  // }}
                 >
                   Play
                 </button>
