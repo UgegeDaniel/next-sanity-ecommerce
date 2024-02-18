@@ -34,7 +34,7 @@ const WalletPage: React.FC = () => {
     publicKey: "pk_test_f1c3b2aacb3c568cb7438355a0fb3159e38706ef",
   };
   const initializePayment = usePaystackPayment(config);
-  const useInitiateNewPayment = (
+  const initiateNewPayment = (
     user: FbUser,
     amount: number,
     successCb: () => void,
@@ -222,7 +222,7 @@ const WalletPage: React.FC = () => {
             className=""
             onSubmit={(e) => {
               e.preventDefault();
-              useInitiateNewPayment(
+              initiateNewPayment(
                 JSON.parse(user!),
                 Number(amount),
                 onSuccess,
