@@ -10,10 +10,6 @@ import { SanityUIDProvider } from "../context/sanityUserId";
 import { useRouter } from "next/router";
 import "../global.css";
 import { ShippingDataProvider } from "../context/shippingContext";
-import { Router, Routes, Route } from "react-router";
-import CheckoutPage from "../components/Checkout/checkoutPage";
-import { userInfo } from "os";
-//import Productcheckout from "./productcheckout";
 
 function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter();
@@ -32,6 +28,16 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             `}
       </Script>
       <UserProvider>
+        {/** Pass the auth0 prop directly inside UserProvider */}
+        {{
+          auth0: {
+            clientId: "YOUR_AUTH0_CLIENT_ID",
+            clientSecret: "YOUR_AUTH0_CLIENT_SECRET",
+            domain: "YOUR_AUTH0_DOMAIN",
+            redirectUri: "YOUR_REDIRECT_URI",
+            // Add other Auth0 configuration options if needed
+          },
+        }}
         <SanityUIDProvider>
           <ShippingDataProvider>
             <ShoppingCartProvider>
