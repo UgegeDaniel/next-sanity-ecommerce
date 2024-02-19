@@ -36,7 +36,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           clientId: "oFnaaPG0oZkPf0UltTG68WsU20gcFJhx",
           clientSecret: "GvOkiZ2zuDX5fuvp4UHbeamTYzapj2B6KY3tctI8HzM6weCCKUbdegg8wUezF-rl",
           domain: "dev-2t4071c7y43t7pmj.us.auth0.com",
-          redirectUri: "https://next-sanity-ecommerce-sage.vercel.app/", // Specify your redirect URI here
+          redirectUri: "https://next-sanity-ecommerce-sage.vercel.app/profile", // Specify your redirect URI here
         }}
 >
         <SanityUIDProvider>
