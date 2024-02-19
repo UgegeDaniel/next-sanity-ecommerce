@@ -27,17 +27,15 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 })(window,document,'script','dataLayer','GTM-PCK8Q8M');
             `}
       </Script>
-      <UserProvider>
-        {/** Pass the auth0 prop directly inside UserProvider */}
-        {{
-          auth0: {
-            clientId: "YOUR_AUTH0_CLIENT_ID",
-            clientSecret: "YOUR_AUTH0_CLIENT_SECRET",
-            domain: "YOUR_AUTH0_DOMAIN",
-            redirectUri: "YOUR_REDIRECT_URI",
-            // Add other Auth0 configuration options if needed
-          },
+      <UserProvider
+        auth0={{
+          clientId: "YOUR_AUTH0_CLIENT_ID",
+          clientSecret: "YOUR_AUTH0_CLIENT_SECRET",
+          domain: "YOUR_AUTH0_DOMAIN",
+          redirectUri: "YOUR_REDIRECT_URI",
+          // Add other Auth0 configuration options if needed
         }}
+      >
         <SanityUIDProvider>
           <ShippingDataProvider>
             <ShoppingCartProvider>
