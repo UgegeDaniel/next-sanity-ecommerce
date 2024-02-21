@@ -62,7 +62,7 @@ const WalletPage: React.FC = () => {
     if(user){
       setUserDetails(JSON.parse(user));
     }
-  }, [user])
+  }, [])
 
   // useEffect(() => {
   //   if (carddetails) {
